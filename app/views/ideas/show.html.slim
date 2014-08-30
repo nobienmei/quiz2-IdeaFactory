@@ -1,0 +1,8 @@
+/ h1= @idea.title
+
+/ h2 Body
+/ p= @idea.body
+/ p Created By #{@question.user.full_name}
+/ - @idea.categories.each do |category|
+/   .label.label-info= link_to category.name, category
+/ br

@@ -1,0 +1,24 @@
+= form_for(@idea) do |f|
+  - if @idea.errors.any?
+    / #error_explanation
+    /   h2
+    /     = pluralize(@idea.errors.count, "error")
+    /     prohibited this idea from being saved:
+      ul
+        - @idea.errors.full_messages.each do |message|
+          li= message
+  .col-xs-12.col-md-8
+    .field.form-group
+      = f.label :title
+      br/
+      = f.text_field :title, class: "form-control"
+    .field.form-group
+      = f.label :body
+      br/
+      = f.text_area :body, class: "form-control"
+    / .field.form-group
+    /   = f.label :image
+    /   br/
+    /   = f.file_field :image, class: "form-control"
+    .actions
+      = f.submit class: "btn btn-info"
